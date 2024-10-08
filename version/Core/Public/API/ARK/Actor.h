@@ -5528,6 +5528,9 @@ struct UPrimalCharacterStatusComponent : UActorComponent
 
 struct APrimalDinoCharacter : APrimalCharacter
 {
+	void OnCryo(AShooterPlayerController* ForPC) { NativeCall<void, AShooterPlayerController*>(this, "APrimalDinoCharacter.OnCryo", ForPC); }
+	void OnUncryo(AShooterPlayerController* ForPC) { NativeCall<void, AShooterPlayerController*>(this, "APrimalDinoCharacter.OnUncryo", ForPC); }
+
 	TWeakObjectPtr<AActor> & ForcedMasterTargetField() { return *GetNativePointerField<TWeakObjectPtr<AActor>*>(this, "APrimalDinoCharacter.ForcedMasterTarget"); }
 	FName & MountCharacterSocketNameField() { return *GetNativePointerField<FName*>(this, "APrimalDinoCharacter.MountCharacterSocketName"); }
 	TWeakObjectPtr<APrimalCharacter> & MountCharacterField() { return *GetNativePointerField<TWeakObjectPtr<APrimalCharacter>*>(this, "APrimalDinoCharacter.MountCharacter"); }
